@@ -1,0 +1,268 @@
+
+<div ng-controller="homeCont">
+
+<main id="main">
+
+    <!--==========================
+     Subscribe Section
+   ============================-->
+    <section id="subscribe" ng-show="logged===false">
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+                <h2>Login / register</h2>
+                <h2>to enjoy more features</h2>
+            </div>
+
+            <form method="POST" action="#">
+                <div class="form-row justify-content-center">
+                    <div class="col-auto">
+                        <button class="col-auto"><a href="#!login" style="color: white">Login</a></button>
+                    </div>
+                    <div class="col-auto">
+                        <button class="col-auto"><a href="#!register" style="color: white">Register</a></button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+
+<!--==========================
+  recommendation Section
+============================-->
+
+        <section id="hotels" class="section-with-bg wow fadeInUp">
+
+            <style>
+                label {
+                    /* Presentation */
+                    font-size: 24px
+                }
+
+                /* Required Styling */
+
+                label input[type="checkbox"] {
+                    display: none;
+                }
+
+                .custom-checkbox {
+                    margin-left: 2em;
+                    position: relative;
+                    cursor: pointer;
+                }
+
+                .custom-checkbox .glyphicon {
+                    color: #ff2446;
+                    position: absolute;
+                    top: 0.4em;
+                    left: -1.25em;
+                    font-size: 0.75em;
+                }
+
+                .custom-checkbox .glyphicon-star-empty {
+                    color: gray;
+                }
+
+                .custom-checkbox .glyphicon-star {
+                    opacity: 0;
+                    transition: opacity 0.2s ease-in-out;
+                }
+
+                .custom-checkbox:hover .glyphicon-star{
+                    opacity: 0.5;
+                }
+
+                .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+                    opacity: 1;
+                }
+            </style>
+
+            <div class="container">
+
+
+                <div class="section-header">
+                    <h2>Recommended POI</h2>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6" ng-repeat="x in rec">
+                        <div class="hotel">
+                            <div class="hotel-img">
+                                <img src={{x.imageUrl}} alt={{x.name}} class="img-fluid">
+                            </div>
+                            <h3><a href="" ng-click="showPOIDetails(x)">{{x.name}}</a></h3>
+
+                            <div class="stars">
+                                <i class="fa fa-star" ng-repeat="n in range(1,x.rank)"></i>
+
+                            </div>
+
+                            <div style="display: flex">
+                                <p>Category: {{x.field}}</p>
+                                <p>Views: {{x.views}}</p>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div ng-init="initFavorites()"></div>-->
+
+
+                </div>
+            </div>
+
+        <!--</section>-->
+
+
+    <!--==========================
+  user last save favorite Section
+============================-->
+
+    <!--<section id="hotels" class="section-with-bg wow fadeInUp" ng-show="logged===true">-->
+
+        <div class="container" ng-show="logged===true">
+
+
+            <div class="section-header">
+                <h2>last favorite POI</h2>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6" ng-repeat="x in fav">
+                    <div class="hotel">
+                        <div class="hotel-img">
+                            <img src={{x.imageUrl}} alt={{x.name}} class="img-fluid">
+                        </div>
+                        <h3><a href="" ng-click="showPOIDetails(x)">{{x.name}}</a></h3>
+
+                        <div class="stars">
+                            <i class="fa fa-star" ng-repeat="n in range(1,x.rank)"></i>
+
+                        </div>
+
+                        <div style="display: flex">
+                            <p>Category: {{x.field}}</p>
+                            <p>Views: {{x.views}}</p>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--<div ng-init="initFavorites()"></div>-->
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!--==========================
+      Venue Section
+    ============================-->
+
+    <!--==========================
+      Gallery Section
+    ============================-->
+    <section id="gallery" class="wow fadeInUp">
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Location</h2>
+                <!--<p>Check our gallery from the recent events</p>-->
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-lg-6 venue-map">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217027.54124405383!2d35.31544407300137!3d31.79624190945752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502d7d634c1fc4b%3A0xd96f623e456ee1cb!2z15nXqNeV16nXnNeZ150!5e0!3m2!1siw!2sil!4v1560868654546!5m2!1siw!2sil"  frameborder="0" allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="owl-carousel gallery-carousel">
+            <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
+            <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
+            <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
+            <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
+            <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
+            <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
+            <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
+            <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+        </div>
+
+    </section>
+
+
+
+
+
+</main>
+
+
+<!--==========================
+  Footer
+============================-->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="description footer-info">
+                    <!--<img src="img/logo.png" alt="Jerusalem">-->
+                    <h4>Jerusalem</h4>
+                    <p>The City of Jerusalem is truly one-of-a-kind in its vast importance to such a great number of people around the world. In fact, Jerusalem’s centrality to the three major monotheistic religions – Judaism, Christianity and Islam – makes it a draw for as much as half the world’s population. There is simply no comparison with any other city, anywhere, for only Jerusalem can claim such a rich spiritual and historical magnetism for so many.</p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
+                    </ul>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        Israel <br>
+                        <strong>Phone:</strong> +972 5589 55488 55<br>
+                        <strong>Email:</strong> info@jerusalem.com<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="https://twitter.com/jlm_city" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Jerusalem/" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/jerusalem_city/" class="instagram"><i class="fa fa-instagram"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>Jerusalem City</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+            -->
+            Designed by NetaDani</a>
+        </div>
+    </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+<!--&lt;!&ndash; JavaScript Libraries &ndash;&gt;-->
+</div>

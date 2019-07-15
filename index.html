@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jerusalem for you</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <link rel="icon" href="img/favicon.png">
+
+  <!--&lt;!&ndash; Favicons &ndash;&gt;-->
+  <!--<link href="img/favicon.png" rel="icon">-->
+  <!--<link href="img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <!-- Main Stylesheet File -->
+
+  <!-- Contact Form JavaScript File -->
+  <!--<script src="contactform/contactform.js"></script>-->
+</head>
+<body ng-app="myApp">
+
+
+
+<!-- menu -->
+
+<div class="container" ng-controller="myCtrl" ng-init="myinit()">
+
+  <nav id="nav-menu-container">
+    <ul class="nav-menu">
+      <li class="menu-active"><a href="#intro">Home</a></li>
+      <li><a href="#!about">About</a></li>
+      <!--<li><a href="#!speakers">Speakers</a></li>-->
+      <li ng-show="logged===false"><a href="#!register">Register</a></li>
+      <li ng-show="logged===true"><a href="#!poi">Points of Interests</a></li>
+      <li ng-show="logged===true"><a href="#!favorites">Favorites({{favoriets.size}})</a></li>
+      <li ng-show="logged===false" class="login"><a href="#!login">Login</a></li>
+      <li ng-show="logged===true" class="login"><a href="#!login" id="logout">Logout</a></li>
+      <li style="padding-left: 120px;"><a ng-model="logUser" style="color: white">hello {{logUser}}</a></li>
+    </ul>
+  </nav><!-- #nav-menu-container -->
+</div>
+
+
+<!-- This section changes as the hashbang changes -->
+<div ng-view></div>
+
+
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="lib/easing/easing.min.js"></script>
+<script type="text/javascript" src="lib/superfish/hoverIntent.js"></script>
+<script type="text/javascript" src="lib/superfish/superfish.min.js"></script>
+<script type="text/javascript" src="lib/wow/wow.min.js"></script>
+<script type="text/javascript" src="lib/venobox/venobox.min.js"></script>
+<script type="text/javascript" src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+<script type="text/javascript" src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="pages/register/registerController.js"></script>
+<script type="text/javascript" src="pages/home/homeController.js"></script>
+<script type="text/javascript" src="pages/login/loginController.js"></script>
+<script type="text/javascript" src="pages/speakers/spCont.js"></script>
+<script type="text/javascript" src="pages/pointsofinterest/poiController.js"></script>
+<script type="text/javascript" src="pages/favorites/favoritesController.js"></script>
+<script type="text/javascript" src="pages/poiInformation/poiInformationController.js"></script>
+<link href="css/style.css" rel="stylesheet">
+</body>
+</html>

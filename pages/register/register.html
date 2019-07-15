@@ -1,0 +1,99 @@
+<br>
+<br>
+<br>
+<br>
+<!--==========================
+    Register Section
+  ============================-->
+<div ng-controller="registerCont">
+<section id="register" class="section-bg wow fadeInUp">
+
+    <div class="container">
+
+        <div class="section-header">
+            <h2>Register to our Website</h2>
+            <p>Nihil officia ut sint molestiae tenetur.</p>
+        </div>
+
+        <!--<div class="row contact-info">-->
+
+            <!--<div class="col-md-4">-->
+                <!--<div class="contact-address">-->
+                    <!--<i class="ion-ios-location-outline"></i>-->
+                    <!--<h3>Address</h3>-->
+                    <!--<address>A108 Adam Street, NY 535022, USA</address>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-4">-->
+                <!--<div class="contact-phone">-->
+                    <!--<i class="ion-ios-telephone-outline"></i>-->
+                    <!--<h3>Phone Number</h3>-->
+                    <!--<p><a href="tel:+155895548855">+1 5589 55488 55</a></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-4">-->
+                <!--<div class="contact-email">-->
+                    <!--<i class="ion-ios-email-outline"></i>-->
+                    <!--<h3>Email</h3>-->
+                    <!--<p><a href="mailto:info@example.com">info@example.com</a></p>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+        <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form  name = "userForm"  method="post"  class="contactForm"  novalidate>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="uname" class="form-control" ng-model="userName" id="useNname" placeholder="user Name" required/>
+                        <input type="text" name="fName" class="form-control" ng-model="firstName" id="firstName" placeholder="firstName" required/>
+
+                        <select  class="form-control" ng-model="userCountry"  id="user-country " ng-options="x for x in countries" required>
+                            <option value="" disabled selected>Country</option>
+                        </select>
+
+                        <select name="question1" class="form-control" ng-model="q1" id="question1" required>
+                            <option value="" disabled selected>security question 1</option>
+                            <option value="{{x}}" ng-repeat="x in squestion">{{x.questionContent}}</option>
+                        </select>
+
+                        <select name="question2" class="form-control" ng-model="q2" id="question2" required>
+                            <option value="" disabled selected>security question 2</option>
+                            <option value="{{x}}" ng-repeat="x in squestion">{{x.questionContent}}</option>
+                        </select>
+
+                        <select name="fld1" class="form-control" ng-model="f1" id="field1" ng-options="x for x in fields.field" required>
+                            <option value="" disabled selected>field 1</option>
+                        </select>
+
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="password" name="password" class="form-control" ng-model="pass" id="password" placeholder="password" required />
+                        <input type="text" name="lname" class="form-control" ng-model="lastName" id="lastName" placeholder="lastName" />
+                        <input type="text"  class="form-control" ng-model="cty" id="city" placeholder="city" />
+                        <input type="text" name="answer1" class="form-control" ng-model="ans1" id="ans1" placeholder="Answer" required/>
+                        <input type="text" name="answer2" class="form-control" ng-model="ans2" id="ans2" placeholder="Answer" required/>
+                        <select name="fld2" class="form-control" ng-model="f2"  id="field2 " ng-options="x for x in fields.field" required>
+                            <option value="" disabled selected>field 2</option>
+                        </select>
+                        <div class="validation"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" ng-model="userEmail" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+                    <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" ng-click="submitForm()" class="text-center">Submit</button></div>
+            </form>
+        </div>
+
+    </div>
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+</section><!-- #contact -->
+
+</div>

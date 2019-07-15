@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<!--==========================
+    login Section
+  ============================-->
+<div ng-controller="loginCont">
+    <section id="register" class="section-bg wow fadeInUp">
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Login</h2>
+                <p>login to enjoy more features</p>
+            </div>
+
+            <div class="form center">
+                <div id="errormessage"></div>
+                <form  name = "userForm"  method="post"  class="contactForm "  novalidate>
+                    <div class="form-row">
+                        <div class="form-group col-md-6" style="margin: auto">
+                            <input type="text" class="form-control" ng-model="uname" id="useNname" placeholder="user Name" required/>
+                            <input type="password"  class="form-control" ng-model="pss"  placeholder="password" required/>
+                        </div>
+                    </div>
+                    <div class="text-center" style="padding-top: 50px"><button type="submit" ng-click="login()" class="text-center">Submit</button></div>
+                    <div class="text-center" style="padding-top: 50px"><a href="#!login" ng-click="forget()" class="text-center">forgot your Password?</a></div>
+                </form>
+            </div>
+
+        </div>
+        <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </section><!-- #contact -->
+
+</div>
+
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>

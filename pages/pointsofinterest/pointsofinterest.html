@@ -1,0 +1,139 @@
+
+
+<!--==========================
+  Hotels Section
+============================-->
+<div ng-controller="poiCont">
+
+<section id="hotels" class="section-with-bg wow fadeInUp">
+
+    <style>
+        label {
+            /* Presentation */
+            font-size: 24px
+        }
+
+        /* Required Styling */
+
+        label input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox {
+            margin-left: 2em;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .custom-checkbox .glyphicon {
+            color: #ff2446;
+            position: absolute;
+            top: 0.4em;
+            left: -1.25em;
+            font-size: 0.75em;
+        }
+
+        .custom-checkbox .glyphicon-star-empty {
+            color: gray;
+        }
+
+        .custom-checkbox .glyphicon-star {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .custom-checkbox:hover .glyphicon-star{
+            opacity: 0.5;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+            opacity: 1;
+        }
+    </style>
+
+    <div class="container">
+
+
+        <div class="section-header">
+            <h2>Points of Interest</h2>
+            <!--<p>Her are some nearby hotels</p>-->
+        </div>
+        <div class="selections">
+            <div class="search">
+                <form class="form-inline md-form mr-auto mb-4">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" ng-change="searchPoi()" ng-model="textToSearch">
+                    <!--<button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="searchPoi()">Search</button>-->
+                </form>
+            </div>
+            <div class="sort">
+                <!--<label>Sort  </label><br>-->
+                <select name="fld1" class="f-control" ng-model="sortBy" id="field1" ng-options="x for x in sortOption">
+                    <option value="">Select one..</option>
+                </select>
+                <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="sortPoi()">Sort</button>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6" ng-repeat="x in poiToShow">
+                <div class="hotel">
+                    <div class="hotel-img">
+                        <img src={{x.imageUrl}} alt={{x.name}} class="img-fluid">
+                    </div>
+                    <h3><a href="" ng-click="showPOIDetails(x)">{{x.name}}</a></h3>
+                    <div class="stars">
+                        <i class="fa fa-star" ng-repeat="n in range(1,x.rank)"></i>
+
+                    </div>
+
+                    <div style="display: flex">
+                        <p>Category: {{x.field}}</p>
+                        <p>Views: {{x.views}}</p>
+                    </div>
+                    <div>
+                        <!--<i class="heart fa fa-heart-o"></i>-->
+
+                        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+                        <label for="id-of-input{{x.poiId}}" class="custom-checkbox">
+                            <input type="checkbox" id="id-of-input{{x.poiId}}" ng-click="addToFavorite(x)"/>
+                            <div ng-if="!initFavorites(x)">
+                                <i class="glyphicon glyphicon-star-empty"></i>
+                                <span class="fav">Add to Favorites</span>
+                            </div>
+                            <div class="stars2" ng-if="initFavorites(x)">
+                                <i class="glyphicon glyphicon-star-empty"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <span class="fav">Favorite</span>
+                            </div>
+
+                        </label >
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!--<div ng-init="initFavorites()"></div>-->
+
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

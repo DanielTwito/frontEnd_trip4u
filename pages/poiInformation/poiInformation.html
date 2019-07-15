@@ -1,0 +1,189 @@
+<div ng-controller="poiInfoCont" >
+
+    <section id="hotels" class="section-with-bg wow fadeInUp">
+
+        <style>
+            label {
+                /* Presentation */
+                font-size: 24px
+            }
+
+            /* Required Styling */
+
+            label input[type="checkbox"] {
+                display: none;
+            }
+
+            .custom-checkbox {
+                margin-left: 2em;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .custom-checkbox .glyphicon {
+                color: #ff2446;
+                position: absolute;
+                top: 0.4em;
+                left: -1.25em;
+                font-size: 0.75em;
+            }
+
+            .custom-checkbox .glyphicon-star-empty {
+                color: gray;
+            }
+
+            .custom-checkbox .glyphicon-star {
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            .custom-checkbox:hover .glyphicon-star{
+                opacity: 0.5;
+            }
+
+            .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+                opacity: 1;
+            }
+        </style>
+
+
+        <div class="container">
+
+
+            <div class="section-header">
+                <h2>{{poi.name}}</h2>
+
+
+                <!--<p>Her are some nearby hotels</p>-->
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="hotel">
+                        <div class="hotel-img">
+                            <img src={{poi.imageUrl}} alt={{poi.name}} class="img-fluid">
+                        </div>
+                        <h3>{{poi.name}}</h3>
+
+
+
+
+                        <div class="stars">
+                            <i class="fa fa-star" ng-repeat="n in range(1,poi.rank)"></i>
+                        </div>
+
+                        <div style="display: flex">
+                            <p>Category: {{poi.field}}</p>
+                            <p id="poi_views">Views: {{poi.views}}</p>
+                        </div>
+                        <p>{{poi.description}}</p>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="hotel">
+                        <!--==========================
+  Schedule Section
+============================-->
+
+
+
+
+
+                            <section id="schedule" class="section-with-bg">
+                            <div class="container wow fadeInUp">
+
+                                <div class="tab-content row justify-content-center">
+
+                                    <!-- Schdule Day 1 -->
+                                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+                                        <div >
+
+                                            <!--<i class="heart fa fa-heart-o"></i>-->
+                                            <!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
+
+                                            <label for="id-of-input" class="custom-checkbox">
+                                                <input type="checkbox" id="id-of-input" ng-click="addToFavorites(poi)"/>
+                                                <div ng-if="!initFavorite(poi)">
+                                                    <i class="glyphicon glyphicon-star-empty"></i>
+                                                    <span class="fav1" style="background-color: #f82249 ;color:white;padding:4px;text-align: left;font-size: large">Add to Favorites</span>
+                                                </div>
+                                                <div class="stars2" ng-if="initFavorite(poi)">
+                                                    <i class="glyphicon glyphicon-star-empty"></i>
+                                                    <i class="glyphicon glyphicon-star"></i>
+                                                    <span class="fav1" style="background-color: #f82249 ;color:white;padding: 4px;text-align: left;font-size: large">remove from Favorite</span></button>
+                                                </div>
+
+                                            </label >
+
+                                        </div>
+                                        <div class="row schedule-item">
+                                            <div class="col-md-10">
+                                                <h4>comments</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="row schedule-item" ng-repeat="item in review_list">
+                                            <div class="col-md-2"><time>{{item.date}}</time></div>
+                                            <div class="col-md-10">
+                                                <div class="speaker">
+                                                    <img src="https://robohash.org/{{item.userName}}" alt="{{item.userName}}">
+                                                </div>
+                                                <h4> <span>{{item.userName}}</span></h4>
+                                                <p>{{item.review}}</p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6" >
+                    <div class="hotel" style="width: 600px;background-color: #f6f7fd;">
+                        <form  name = "userForm"  method="post"  class="contactForm " >
+                            <div >
+                                <div class="form-group col-md-6" style="margin: auto">
+                                    <h2>rank/leave review</h2>
+                                    <input type="text" class="form-control"  style="width: 250px;text-align: center" ng-model="rank"  placeholder="rank (num between 1-5)" />
+                                    <div class="text-center"  style="padding-bottom: 50px">
+                                        <button type="submit" ng-click="sendRank()" class="text-center">add Rank</button>
+                                    </div>
+                                    <textarea type="text"  class="form-control" style="width:250px;height: 300px;text-align: center;" ng-model="review" placeholder="review section" />
+                                    <div class="text-center" >
+                                        <button type="submit" ng-click="sendReview()" class="text-center">add review</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+</div>

@@ -1,0 +1,86 @@
+
+
+<!--==========================
+  Favorites Section
+============================-->
+<div ng-controller="favoritesCont">
+
+<section id="hotels" class="section-with-bg wow fadeInUp">
+
+    <script>
+        $(".star.glyphicon").click(function() {
+            $(this).toggleClass("glyphicon-star glyphicon-star-empty");
+        });
+
+        $(".heart.fa").click(function() {
+            $(this).toggleClass("fa-heart fa-heart-o");
+        });
+    </script>
+    <div class="container">
+
+
+        <div class="section-header">
+            <h2>Favorite Points of Interest</h2>
+            <!--<p>Her are some nearby hotels</p>-->
+        </div>
+        <div class="selections">
+            <div class="search">
+                <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="save()">Save Favorites</button>
+            </div>
+            <div class="sort">
+                <!--<label>Sort  </label><br>-->
+                <select name="flג1" class="f-control" ng-model="sortBy" id="field1" ng-options="x for x in options">
+                    <option value="">Select one..</option>
+                </select>
+                <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="sortPoi()">Sort</button>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <!--<div class="sortable-container" sv-root sv-part="favToShow">-->
+
+                <div class="col-lg-4 col-md-6" ng-repeat="x in favToShow">
+                    <div class="hotel">
+                        <div class="hotel-img">
+                            <img src={{x.imageUrl}} alt={{x.name}} class="img-fluid">
+                        </div>
+                        <h3><a href="" ng-click="showPOIDetails(x)">{{x.name}}</a></h3>
+                        <div class="stars">
+                            <i class="fa fa-star" ng-repeat="n in range(1,x.rank)"></i>
+                        </div>
+                        <div style="display: flex">
+                            <p>Category: {{x.field}}</p>
+                            <p>Views: {{x.views}}</p>
+                        </div>
+                        <button type="button" ng-click="removePOI(x.poiId)" class="btn btn-danger">Remove from Favorites</button>
+                        <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="swapLeft(x,$index)"> < </button>
+                        <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit" ng-click="swapRight(x, $index)"> > </button>
+                    </div>
+                    <!--<span sv-handle>handle</span>-->
+
+                </div>
+
+            <!--</div>-->
+
+
+        </div>
+    </div>
+
+
+</section>
+
+
+
+
+    <!--<div>-->
+        <!--<div ng-repeat="item in favToShow">-->
+            <!--<p>{{item.poiIndex}}</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+</div>
